@@ -1,20 +1,17 @@
-﻿using System.IO;
-using System.Linq;
+using System;
+using System.Windows.Forms;
 
 namespace SPZLab4Var1
 {
-    class Program
+    static class Program
     {
-        private const string _inputFileName = "text.txt";
-
-        static void Main() => File.WriteAllText(
-            _inputFileName + ".out",
-            File.ReadAllText(_inputFileName)
-                .Split(", ")
-                .GroupBy(character => character)
-                .Max(grouping => grouping.Count())
-                .ToString()
-        );
+        [STAThread]
+        static void Main()
+        {
+            Application.SetHighDpiMode(HighDpiMode.SystemAware);
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Form1());
+        }
     }
 }
-
